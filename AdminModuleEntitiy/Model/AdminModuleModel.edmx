@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="security_modulesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AD_BusinessNature">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BusinessNature" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreatorId" Type="int" Nullable="false" />
+          <Property Name="CreationDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifierId" Type="int" Nullable="false" />
+          <Property Name="ModificationDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AD_BusinessType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BusinessType" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreatorId" Type="int" Nullable="false" />
+          <Property Name="CreationDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifierId" Type="int" Nullable="false" />
+          <Property Name="ModificationDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AD_CompanyProfile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="CompanyName" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="BusinessTypeId" Type="int" Nullable="false" />
+          <Property Name="BusinessNatureId" Type="int" Nullable="false" />
+          <Property Name="BIN" Type="varchar" MaxLength="50" />
+          <Property Name="TIN" Type="varbinary" MaxLength="50" />
+          <Property Name="AddressLine1" Type="varchar" MaxLength="200" />
+          <Property Name="AddressLine2" Type="varchar" MaxLength="200" />
+          <Property Name="Phone" Type="varchar" MaxLength="200" />
+          <Property Name="ContactPersion" Type="varchar" MaxLength="150" />
+          <Property Name="IncorporationNumber" Type="varchar" MaxLength="50" />
+          <Property Name="Remarks" Type="varchar" MaxLength="200" />
+          <Property Name="CreatorId" Type="int" Nullable="false" />
+          <Property Name="CreationDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifierId" Type="int" Nullable="false" />
+          <Property Name="ModificationDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="security_modulesModelStoreContainer">
+          <EntitySet Name="AD_BusinessNature" EntityType="Self.AD_BusinessNature" Schema="demo2" store:Type="Tables" />
+          <EntitySet Name="AD_BusinessType" EntityType="Self.AD_BusinessType" Schema="demo2" store:Type="Tables" />
+          <EntitySet Name="AD_CompanyProfile" EntityType="Self.AD_CompanyProfile" Schema="demo2" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="security_modulesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AD_BusinessNature">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BusinessNature" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreatorId" Type="Int32" Nullable="false" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifierId" Type="Int32" Nullable="false" />
+          <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="AD_CompanyProfile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="CompanyName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BusinessTypeId" Type="Int32" Nullable="false" />
+          <Property Name="BusinessNatureId" Type="Int32" Nullable="false" />
+          <Property Name="BIN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TIN" Type="Binary" MaxLength="50" FixedLength="false" />
+          <Property Name="AddressLine1" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="AddressLine2" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ContactPersion" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="IncorporationNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Remarks" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="CreatorId" Type="Int32" Nullable="false" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifierId" Type="Int32" Nullable="false" />
+          <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityContainer Name="security_modulesEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AD_BusinessNature" EntityType="Self.AD_BusinessNature" />
+          <EntitySet Name="AD_CompanyProfile" EntityType="Self.AD_CompanyProfile" />
+          <EntitySet Name="AD_BusinessType" EntityType="security_modulesModel.AD_BusinessType" />
+        </EntityContainer>
+        <EntityType Name="AD_BusinessType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BusinessType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreatorId" Type="Int32" Nullable="false" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifierId" Type="Int32" Nullable="false" />
+          <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="security_modulesModelStoreContainer" CdmEntityContainer="security_modulesEntities">
+          <EntitySetMapping Name="AD_BusinessNature">
+            <EntityTypeMapping TypeName="security_modulesModel.AD_BusinessNature">
+              <MappingFragment StoreEntitySet="AD_BusinessNature">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="BusinessNature" ColumnName="BusinessNature" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
+                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AD_CompanyProfile">
+            <EntityTypeMapping TypeName="security_modulesModel.AD_CompanyProfile">
+              <MappingFragment StoreEntitySet="AD_CompanyProfile">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="BusinessTypeId" ColumnName="BusinessTypeId" />
+                <ScalarProperty Name="BusinessNatureId" ColumnName="BusinessNatureId" />
+                <ScalarProperty Name="BIN" ColumnName="BIN" />
+                <ScalarProperty Name="TIN" ColumnName="TIN" />
+                <ScalarProperty Name="AddressLine1" ColumnName="AddressLine1" />
+                <ScalarProperty Name="AddressLine2" ColumnName="AddressLine2" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="ContactPersion" ColumnName="ContactPersion" />
+                <ScalarProperty Name="IncorporationNumber" ColumnName="IncorporationNumber" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
+                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AD_BusinessType">
+            <EntityTypeMapping TypeName="security_modulesModel.AD_BusinessType">
+              <MappingFragment StoreEntitySet="AD_BusinessType">
+                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="BusinessType" ColumnName="BusinessType" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
