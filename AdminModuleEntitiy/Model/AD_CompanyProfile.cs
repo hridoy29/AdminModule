@@ -19,7 +19,7 @@ namespace AdminModuleEntitiy.Model
         public int BusinessTypeId { get; set; }
         public int BusinessNatureId { get; set; }
         public string BIN { get; set; }
-        public byte[] TIN { get; set; }
+        public string TIN { get; set; }
         public string AddressLine1 { get; set; }
         public string AddressLine2 { get; set; }
         public string Phone { get; set; }
@@ -30,5 +30,8 @@ namespace AdminModuleEntitiy.Model
         public System.DateTime CreationDate { get; set; }
         public int ModifierId { get; set; }
         public System.DateTime ModificationDate { get; set; }
+    
+        public virtual AD_BusinessNature AD_BusinessNature { get; set; }
+        public virtual AD_BusinessType AD_BusinessType { get; set; }
     }
 }

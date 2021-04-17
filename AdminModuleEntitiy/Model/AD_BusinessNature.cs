@@ -14,6 +14,12 @@ namespace AdminModuleEntitiy.Model
     
     public partial class AD_BusinessNature
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public AD_BusinessNature()
+        {
+            this.AD_CompanyProfile = new HashSet<AD_CompanyProfile>();
+        }
+    
         public int Id { get; set; }
         public string BusinessNature { get; set; }
         public bool IsActive { get; set; }
@@ -21,5 +27,8 @@ namespace AdminModuleEntitiy.Model
         public System.DateTime CreationDate { get; set; }
         public int ModifierId { get; set; }
         public System.DateTime ModificationDate { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<AD_CompanyProfile> AD_CompanyProfile { get; set; }
     }
 }

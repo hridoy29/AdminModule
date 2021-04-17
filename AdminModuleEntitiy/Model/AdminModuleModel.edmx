@@ -33,12 +33,12 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CompanyName" Type="varchar" MaxLength="200" Nullable="false" />
           <Property Name="BusinessTypeId" Type="int" Nullable="false" />
           <Property Name="BusinessNatureId" Type="int" Nullable="false" />
           <Property Name="BIN" Type="varchar" MaxLength="50" />
-          <Property Name="TIN" Type="varbinary" MaxLength="50" />
+          <Property Name="TIN" Type="varchar" MaxLength="50" />
           <Property Name="AddressLine1" Type="varchar" MaxLength="200" />
           <Property Name="AddressLine2" Type="varchar" MaxLength="200" />
           <Property Name="Phone" Type="varchar" MaxLength="200" />
@@ -50,53 +50,73 @@
           <Property Name="ModifierId" Type="int" Nullable="false" />
           <Property Name="ModificationDate" Type="datetime" Nullable="false" />
         </EntityType>
+        <Association Name="FK_AD_CompanyProfile_AD_BusinessNature">
+          <End Role="AD_BusinessNature" Type="Self.AD_BusinessNature" Multiplicity="1" />
+          <End Role="AD_CompanyProfile" Type="Self.AD_CompanyProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AD_BusinessNature">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AD_CompanyProfile">
+              <PropertyRef Name="BusinessNatureId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AD_CompanyProfile_AD_BusinessType">
+          <End Role="AD_BusinessType" Type="Self.AD_BusinessType" Multiplicity="1" />
+          <End Role="AD_CompanyProfile" Type="Self.AD_CompanyProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AD_BusinessType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AD_CompanyProfile">
+              <PropertyRef Name="BusinessTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="security_modulesModelStoreContainer">
           <EntitySet Name="AD_BusinessNature" EntityType="Self.AD_BusinessNature" Schema="demo2" store:Type="Tables" />
           <EntitySet Name="AD_BusinessType" EntityType="Self.AD_BusinessType" Schema="demo2" store:Type="Tables" />
           <EntitySet Name="AD_CompanyProfile" EntityType="Self.AD_CompanyProfile" Schema="demo2" store:Type="Tables" />
+          <AssociationSet Name="FK_AD_CompanyProfile_AD_BusinessNature" Association="Self.FK_AD_CompanyProfile_AD_BusinessNature">
+            <End Role="AD_BusinessNature" EntitySet="AD_BusinessNature" />
+            <End Role="AD_CompanyProfile" EntitySet="AD_CompanyProfile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AD_CompanyProfile_AD_BusinessType" Association="Self.FK_AD_CompanyProfile_AD_BusinessType">
+            <End Role="AD_BusinessType" EntitySet="AD_BusinessType" />
+            <End Role="AD_CompanyProfile" EntitySet="AD_CompanyProfile" />
+          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="security_modulesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="security_modulesEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AD_BusinessNature" EntityType="security_modulesModel.AD_BusinessNature" />
+          <EntitySet Name="AD_BusinessType" EntityType="security_modulesModel.AD_BusinessType" />
+          <EntitySet Name="AD_CompanyProfile" EntityType="security_modulesModel.AD_CompanyProfile" />
+          <AssociationSet Name="FK_AD_CompanyProfile_AD_BusinessNature" Association="security_modulesModel.FK_AD_CompanyProfile_AD_BusinessNature">
+            <End Role="AD_BusinessNature" EntitySet="AD_BusinessNature" />
+            <End Role="AD_CompanyProfile" EntitySet="AD_CompanyProfile" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AD_CompanyProfile_AD_BusinessType" Association="security_modulesModel.FK_AD_CompanyProfile_AD_BusinessType">
+            <End Role="AD_BusinessType" EntitySet="AD_BusinessType" />
+            <End Role="AD_CompanyProfile" EntitySet="AD_CompanyProfile" />
+          </AssociationSet>
+          </EntityContainer>
         <EntityType Name="AD_BusinessNature">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="BusinessNature" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BusinessNature" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
           <Property Name="CreatorId" Type="Int32" Nullable="false" />
           <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ModifierId" Type="Int32" Nullable="false" />
           <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="3" />
-        </EntityType>
-        <EntityType Name="AD_CompanyProfile">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="CompanyName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="BusinessTypeId" Type="Int32" Nullable="false" />
-          <Property Name="BusinessNatureId" Type="Int32" Nullable="false" />
-          <Property Name="BIN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="TIN" Type="Binary" MaxLength="50" FixedLength="false" />
-          <Property Name="AddressLine1" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="AddressLine2" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="Phone" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="ContactPersion" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="IncorporationNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Remarks" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="CreatorId" Type="Int32" Nullable="false" />
-          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="ModifierId" Type="Int32" Nullable="false" />
-          <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="3" />
-        </EntityType>
-        <EntityContainer Name="security_modulesEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="AD_BusinessNature" EntityType="Self.AD_BusinessNature" />
-          <EntitySet Name="AD_CompanyProfile" EntityType="Self.AD_CompanyProfile" />
-          <EntitySet Name="AD_BusinessType" EntityType="security_modulesModel.AD_BusinessType" />
-        </EntityContainer>
+          <NavigationProperty Name="AD_CompanyProfile" Relationship="security_modulesModel.FK_AD_CompanyProfile_AD_BusinessNature" FromRole="AD_BusinessNature" ToRole="AD_CompanyProfile" />
+          </EntityType>
         <EntityType Name="AD_BusinessType">
           <Key>
             <PropertyRef Name="Id" />
@@ -108,8 +128,56 @@
           <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="ModifierId" Type="Int32" Nullable="false" />
           <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="AD_CompanyProfile" Relationship="security_modulesModel.FK_AD_CompanyProfile_AD_BusinessType" FromRole="AD_BusinessType" ToRole="AD_CompanyProfile" />
+          </EntityType>
+        <EntityType Name="AD_CompanyProfile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyName" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="BusinessTypeId" Type="Int32" Nullable="false" />
+          <Property Name="BusinessNatureId" Type="Int32" Nullable="false" />
+          <Property Name="BIN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TIN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AddressLine1" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="AddressLine2" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ContactPersion" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="IncorporationNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Remarks" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="CreatorId" Type="Int32" Nullable="false" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifierId" Type="Int32" Nullable="false" />
+          <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="AD_BusinessNature" Relationship="security_modulesModel.FK_AD_CompanyProfile_AD_BusinessNature" FromRole="AD_CompanyProfile" ToRole="AD_BusinessNature" />
+          <NavigationProperty Name="AD_BusinessType" Relationship="security_modulesModel.FK_AD_CompanyProfile_AD_BusinessType" FromRole="AD_CompanyProfile" ToRole="AD_BusinessType" />
         </EntityType>
-      </Schema>
+        <Association Name="FK_AD_CompanyProfile_AD_BusinessNature">
+          <End Type="security_modulesModel.AD_BusinessNature" Role="AD_BusinessNature" Multiplicity="1" />
+          <End Type="security_modulesModel.AD_CompanyProfile" Role="AD_CompanyProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AD_BusinessNature">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AD_CompanyProfile">
+              <PropertyRef Name="BusinessNatureId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AD_CompanyProfile_AD_BusinessType">
+          <End Type="security_modulesModel.AD_BusinessType" Role="AD_BusinessType" Multiplicity="1" />
+          <End Type="security_modulesModel.AD_CompanyProfile" Role="AD_CompanyProfile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AD_BusinessType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AD_CompanyProfile">
+              <PropertyRef Name="BusinessTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -118,35 +186,13 @@
           <EntitySetMapping Name="AD_BusinessNature">
             <EntityTypeMapping TypeName="security_modulesModel.AD_BusinessNature">
               <MappingFragment StoreEntitySet="AD_BusinessNature">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="BusinessNature" ColumnName="BusinessNature" />
+                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
-                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
-                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
-                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="AD_CompanyProfile">
-            <EntityTypeMapping TypeName="security_modulesModel.AD_CompanyProfile">
-              <MappingFragment StoreEntitySet="AD_CompanyProfile">
+                <ScalarProperty Name="BusinessNature" ColumnName="BusinessNature" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
-                <ScalarProperty Name="BusinessTypeId" ColumnName="BusinessTypeId" />
-                <ScalarProperty Name="BusinessNatureId" ColumnName="BusinessNatureId" />
-                <ScalarProperty Name="BIN" ColumnName="BIN" />
-                <ScalarProperty Name="TIN" ColumnName="TIN" />
-                <ScalarProperty Name="AddressLine1" ColumnName="AddressLine1" />
-                <ScalarProperty Name="AddressLine2" ColumnName="AddressLine2" />
-                <ScalarProperty Name="Phone" ColumnName="Phone" />
-                <ScalarProperty Name="ContactPersion" ColumnName="ContactPersion" />
-                <ScalarProperty Name="IncorporationNumber" ColumnName="IncorporationNumber" />
-                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
-                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
-                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
-                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
-                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -159,6 +205,28 @@
                 <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
                 <ScalarProperty Name="BusinessType" ColumnName="BusinessType" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AD_CompanyProfile">
+            <EntityTypeMapping TypeName="security_modulesModel.AD_CompanyProfile">
+              <MappingFragment StoreEntitySet="AD_CompanyProfile">
+                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="IncorporationNumber" ColumnName="IncorporationNumber" />
+                <ScalarProperty Name="ContactPersion" ColumnName="ContactPersion" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="AddressLine2" ColumnName="AddressLine2" />
+                <ScalarProperty Name="AddressLine1" ColumnName="AddressLine1" />
+                <ScalarProperty Name="TIN" ColumnName="TIN" />
+                <ScalarProperty Name="BIN" ColumnName="BIN" />
+                <ScalarProperty Name="BusinessNatureId" ColumnName="BusinessNatureId" />
+                <ScalarProperty Name="BusinessTypeId" ColumnName="BusinessTypeId" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

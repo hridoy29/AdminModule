@@ -26,7 +26,7 @@ namespace AdminModuleEntitiy.Model
         }
     
         public virtual DbSet<AD_BusinessNature> AD_BusinessNature { get; set; }
-        public virtual DbSet<AD_CompanyProfile> AD_CompanyProfile { get; set; }
         public virtual DbSet<AD_BusinessType> AD_BusinessType { get; set; }
+        public virtual DbSet<AD_CompanyProfile> AD_CompanyProfile { get; set; }
     }
 }
