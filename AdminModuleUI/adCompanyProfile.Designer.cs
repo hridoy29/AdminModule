@@ -68,6 +68,8 @@
             this.Remarks = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BusinessTypeId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BusinessNatureId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
@@ -76,6 +78,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(46)))), ((int)(((byte)(107)))));
+            this.panel1.Controls.Add(this.label10);
+            this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label5);
@@ -464,6 +468,28 @@
             this.BusinessNatureId.Name = "BusinessNatureId";
             this.BusinessNatureId.ReadOnly = true;
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(23, 393);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(101, 19);
+            this.label9.TabIndex = 23;
+            this.label9.Text = "Business Type";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.White;
+            this.label10.Location = new System.Drawing.Point(23, 429);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(115, 19);
+            this.label10.TabIndex = 24;
+            this.label10.Text = "Business Nature";
+            // 
             // adCompanyProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -527,5 +553,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Remarks;
         private System.Windows.Forms.DataGridViewTextBoxColumn BusinessTypeId;
         private System.Windows.Forms.DataGridViewTextBoxColumn BusinessNatureId;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
     }
 }
