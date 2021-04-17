@@ -56,6 +56,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="adBank.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="adBank.Designer.cs">
+      <DependentUpon>adBank.cs</DependentUpon>
+    </Compile>
     <Compile Include="adBusinessNature.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,8 +80,89 @@
     <Compile Include="adCompanyProfile.Designer.cs">
       <DependentUpon>adCompanyProfile.cs</DependentUpon>
     </Compile>
+    <Compile Include="adCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="adCustomer.Designer.cs">
+      <DependentUpon>adCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="adExpenseHead.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="adExpenseHead.Designer.cs">
+      <DependentUpon>adExpenseHead.cs</DependentUpon>
+    </Compile>
+    <Compile Include="adHSCode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="adHSCode.Designer.cs">
+      <DependentUpon>adHSCode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="adMeasurementUnit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="adMeasurementUnit.Designer.cs">
+      <DependentUpon>adMeasurementUnit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="adPaymentMethod.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="adPaymentMethod.Designer.cs">
+      <DependentUpon>adPaymentMethod.cs</DependentUpon>
+    </Compile>
+    <Compile Include="adPricingType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="adPricingType.Designer.cs">
+      <DependentUpon>adPricingType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="adProductGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="adProductGroup.Designer.cs">
+      <DependentUpon>adProductGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="adProductType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="adProductType.Designer.cs">
+      <DependentUpon>adProductType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="adPurpose.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="adPurpose.Designer.cs">
+      <DependentUpon>adPurpose.cs</DependentUpon>
+    </Compile>
+    <Compile Include="adReason.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="adReason.Designer.cs">
+      <DependentUpon>adReason.cs</DependentUpon>
+    </Compile>
+    <Compile Include="adStore.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="adStore.Designer.cs">
+      <DependentUpon>adStore.cs</DependentUpon>
+    </Compile>
+    <Compile Include="adStoreItemStatusDeclaration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="adStoreItemStatusDeclaration.Designer.cs">
+      <DependentUpon>adStoreItemStatusDeclaration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="adTerminal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="adTerminal.Designer.cs">
+      <DependentUpon>adTerminal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="adBank.resx">
+      <DependentUpon>adBank.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="adBusinessNature.resx">
       <DependentUpon>adBusinessNature.cs</DependentUpon>
     </EmbeddedResource>
@@ -84,6 +171,42 @@
     </EmbeddedResource>
     <EmbeddedResource Include="adCompanyProfile.resx">
       <DependentUpon>adCompanyProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="adExpenseHead.resx">
+      <DependentUpon>adExpenseHead.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="adHSCode.resx">
+      <DependentUpon>adHSCode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="adMeasurementUnit.resx">
+      <DependentUpon>adMeasurementUnit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="adPaymentMethod.resx">
+      <DependentUpon>adPaymentMethod.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="adPricingType.resx">
+      <DependentUpon>adPricingType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="adProductGroup.resx">
+      <DependentUpon>adProductGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="adProductType.resx">
+      <DependentUpon>adProductType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="adPurpose.resx">
+      <DependentUpon>adPurpose.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="adReason.resx">
+      <DependentUpon>adReason.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="adStore.resx">
+      <DependentUpon>adStore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="adStoreItemStatusDeclaration.resx">
+      <DependentUpon>adStoreItemStatusDeclaration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="adTerminal.resx">
+      <DependentUpon>adTerminal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

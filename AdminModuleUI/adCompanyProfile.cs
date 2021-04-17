@@ -76,7 +76,10 @@ namespace AdminModuleUI
             {
                 using (security_modulesEntities db = new security_modulesEntities())
                 {
-                    cmbBusinessNatureId.DataSource = db.AD_BusinessNature.Select(x => x.BusinessNature + "(" + x.Id + ")").ToList();
+                    cmbBusinessNatureId.DataSource = db.AD_BusinessNature.ToList();
+                    cmbBusinessNatureId.DisplayMember = "BusinessNature";
+                    cmbBusinessNatureId.ValueMember = "Id";
+                     
                 }
             }
             catch (Exception ex)
@@ -88,7 +91,9 @@ namespace AdminModuleUI
             {
                 using (security_modulesEntities db = new security_modulesEntities())
                 {
-                    cmbBusinessTypeId.DataSource = db.AD_BusinessType.Select(x => x.BusinessType + "(" + x.Id + ")").ToList();
+                    cmbBusinessTypeId.DataSource = db.AD_BusinessType.ToList();
+                    cmbBusinessTypeId.DisplayMember = "BusinessType";
+                    cmbBusinessTypeId.ValueMember = "Id";
                 }
             }
             catch (Exception ex)
@@ -119,8 +124,8 @@ namespace AdminModuleUI
                     ad_CompanyProfile.IncorporationNumber = txtboxIncorporationNumber.Text.Trim();
                     ad_CompanyProfile.Phone = txtboxPhone.Text.Trim();
                     ad_CompanyProfile.Remarks = txtboxRemarks.Text.Trim();
-                    ad_CompanyProfile.BusinessNatureId = Convert.ToInt32(cmbBusinessNatureId.Text.Substring(cmbBusinessNatureId.Text.IndexOf("(") + 1, 1).Trim());
-                    ad_CompanyProfile.BusinessTypeId = Convert.ToInt32(cmbBusinessTypeId.Text.Substring(cmbBusinessTypeId.Text.IndexOf("(") + 1, 1).Trim());
+                    ad_CompanyProfile.BusinessNatureId = (int)cmbBusinessNatureId.SelectedValue;
+                    ad_CompanyProfile.BusinessTypeId = (int)cmbBusinessTypeId.SelectedValue; 
                     ad_CompanyProfile.CreationDate = DateTime.Now;
                     ad_CompanyProfile.CreatorId = 1;
                     ad_CompanyProfile.ModificationDate = DateTime.Now;
@@ -159,8 +164,8 @@ namespace AdminModuleUI
                     ad_CompanyProfile.IncorporationNumber = txtboxIncorporationNumber.Text.Trim();
                     ad_CompanyProfile.Phone = txtboxPhone.Text.Trim();
                     ad_CompanyProfile.Remarks = txtboxRemarks.Text.Trim();
-                    ad_CompanyProfile.BusinessNatureId = Convert.ToInt32(cmbBusinessNatureId.Text.Substring(cmbBusinessNatureId.Text.IndexOf("(") + 1, 1).Trim());
-                    ad_CompanyProfile.BusinessTypeId = Convert.ToInt32(cmbBusinessTypeId.Text.Substring(cmbBusinessTypeId.Text.IndexOf("(") + 1, 1).Trim());
+                    ad_CompanyProfile.BusinessNatureId = (int)cmbBusinessNatureId.SelectedValue;
+                    ad_CompanyProfile.BusinessTypeId = (int)cmbBusinessTypeId.SelectedValue; 
                     ad_CompanyProfile.ModificationDate = DateTime.Now;
                     ad_CompanyProfile.ModifierId = 1;
                     if (ad_CompanyProfile.Id > 0)
@@ -204,7 +209,7 @@ namespace AdminModuleUI
                     txtboxIncorporationNumber.Text = ad_CompanyProfile.IncorporationNumber;
                     txtboxPhone.Text = ad_CompanyProfile.Phone;
                     txtboxRemarks.Text = ad_CompanyProfile.Remarks;
-                    cmbBusinessNatureId.DisplayMember.Contains(ad_CompanyProfile.AD_BusinessNature.BusinessNature);
+                     
                 }
 
             }

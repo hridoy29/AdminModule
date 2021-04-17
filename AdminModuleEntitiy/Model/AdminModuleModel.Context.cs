@@ -28,5 +28,21 @@ namespace AdminModuleEntitiy.Model
         public virtual DbSet<AD_BusinessNature> AD_BusinessNature { get; set; }
         public virtual DbSet<AD_BusinessType> AD_BusinessType { get; set; }
         public virtual DbSet<AD_CompanyProfile> AD_CompanyProfile { get; set; }
+        public virtual DbSet<AD_Bank> AD_Bank { get; set; }
+        public virtual DbSet<AD_Customer> AD_Customer { get; set; }
+        public virtual DbSet<AD_ExpenseHead> AD_ExpenseHead { get; set; }
+        public virtual DbSet<AD_HSCode> AD_HSCode { get; set; }
+        public virtual DbSet<AD_MeasurementUnit> AD_MeasurementUnit { get; set; }
+        public virtual DbSet<AD_PaymentMethod> AD_PaymentMethod { get; set; }
+        public virtual DbSet<AD_PricingType> AD_PricingType { get; set; }
+        public virtual DbSet<AD_ProductGroup> AD_ProductGroup { get; set; }
+        public virtual DbSet<AD_ProductType> AD_ProductType { get; set; }
+        public virtual DbSet<AD_Purpose> AD_Purpose { get; set; }
+        public virtual DbSet<AD_Reason> AD_Reason { get; set; }
+        public virtual DbSet<AD_SalesOutlet> AD_SalesOutlet { get; set; }
+        public virtual DbSet<AD_Store> AD_Store { get; set; }
+        public virtual DbSet<AD_StoreItemStatusDeclaration> AD_StoreItemStatusDeclaration { get; set; }
+        public virtual DbSet<AD_Supplier> AD_Supplier { get; set; }
+        public virtual DbSet<AD_Terminal> AD_Terminal { get; set; }
     }
 }

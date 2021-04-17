@@ -9,23 +9,24 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using AdminModuleEntitiy.Model;
+
 namespace AdminModuleUI
-{
-    public partial class adBusinessNature : Form
+{//PaymentType
+    public partial class adPaymentMethod : Form
     {
-        AD_BusinessNature ad_BusinessNature = new AD_BusinessNature();
-        public adBusinessNature()
+        AD_PaymentMethod ad_PaymentMethod = new AD_PaymentMethod();
+        public adPaymentMethod()
         {
             InitializeComponent();
-
-
         }
         public void Clear()
         {
-            txtboxBusinessName.Clear();
+            txtboxPaymentType.Clear();
+            txtboxType.Clear();
             rdoIsActiveYes.Checked = true;
             btnSave.Enabled = true;
-            ad_BusinessNature.Id = 0;
+            ad_PaymentMethod.Id = 0;
+
         }
         public void LoadDate()
         {
@@ -33,15 +34,13 @@ namespace AdminModuleUI
             dataGridView.AutoGenerateColumns = false;
             using (security_modulesEntities db = new security_modulesEntities())
             {
-                dataGridView.DataSource = db.AD_BusinessNature.ToList();
+                dataGridView.DataSource = db.AD_PaymentMethod.ToList();
             }
 
         }
-       
-
-        private void adBusinessNature_Load(object sender, EventArgs e)
+        private void adPaymentMethod_Load(object sender, EventArgs e)
         {
-            LoadDate();
+            LoadDate(); 
         }
 
         private void dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -50,12 +49,14 @@ namespace AdminModuleUI
             {
                 if (dataGridView.CurrentRow.Index != -1)
                 {
-                    ad_BusinessNature.Id = Convert.ToInt32(dataGridView.CurrentRow.Cells["Id"].Value);
+                    ad_PaymentMethod.Id = Convert.ToInt32(dataGridView.CurrentRow.Cells["Id"].Value);
                     using (security_modulesEntities db = new security_modulesEntities())
                     {
-                        ad_BusinessNature = db.AD_BusinessNature.Where(x => x.Id == ad_BusinessNature.Id).FirstOrDefault();
-                        txtboxBusinessName.Text = ad_BusinessNature.BusinessNature;
-                        if (ad_BusinessNature.IsActive == true)
+                        ad_PaymentMethod = db.AD_PaymentMethod.Where(x => x.Id == ad_PaymentMethod.Id).FirstOrDefault();
+                        txtboxType.Text = ad_PaymentMethod.Type.ToString();
+                        txtboxPaymentType.Text = ad_PaymentMethod.PaymentType;
+
+                        if (ad_PaymentMethod.IsActive == true)
                         {
                             rdoIsActiveYes.Checked = true;
                         }
@@ -75,8 +76,6 @@ namespace AdminModuleUI
             }
 
             btnSave.Enabled = false;
-
-
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
@@ -84,22 +83,23 @@ namespace AdminModuleUI
             {
                 using (security_modulesEntities db = new security_modulesEntities())
                 {
-                    ad_BusinessNature.BusinessNature = txtboxBusinessName.Text.Trim();
-                    ad_BusinessNature.CreationDate = DateTime.Now;
-                    ad_BusinessNature.CreatorId = 1;
-                    ad_BusinessNature.ModificationDate = DateTime.Now;
-                    ad_BusinessNature.ModifierId = 1;
+                    ad_PaymentMethod.PaymentType = txtboxPaymentType.Text.Trim();
+                    ad_PaymentMethod.Type = Convert.ToInt16(txtboxType.Text.Trim());
+                    ad_PaymentMethod.CreationDate = DateTime.Now;
+                    ad_PaymentMethod.CreatorId = 1;
+                    ad_PaymentMethod.ModificationDate = DateTime.Now;
+                    ad_PaymentMethod.ModifierId = 1;
                     if (rdoIsActiveYes.Checked == true)
                     {
-                        ad_BusinessNature.IsActive = true;
+                        ad_PaymentMethod.IsActive = true;
                     }
                     else
                     {
-                        ad_BusinessNature.IsActive = false;
+                        ad_PaymentMethod.IsActive = false;
                     }
-                    if (ad_BusinessNature.Id == 0)
+                    if (ad_PaymentMethod.Id == 0)
                     {
-                        db.AD_BusinessNature.Add(ad_BusinessNature);
+                        db.AD_PaymentMethod.Add(ad_PaymentMethod);
                         db.SaveChanges();
                     }
                     LoadDate();
@@ -112,9 +112,8 @@ namespace AdminModuleUI
 
                 throw ex;
             }
-
-
         }
+
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             btnSave.Enabled = true;
@@ -123,20 +122,21 @@ namespace AdminModuleUI
                 using (security_modulesEntities db = new security_modulesEntities())
                 {
 
-                    ad_BusinessNature.BusinessNature = txtboxBusinessName.Text.Trim();
-                    ad_BusinessNature.ModificationDate = DateTime.Now;
-                    ad_BusinessNature.ModifierId = 1;
+                    ad_PaymentMethod.PaymentType = txtboxPaymentType.Text.Trim();
+                    ad_PaymentMethod.Type = Convert.ToInt16(txtboxType.Text.Trim());
+                    ad_PaymentMethod.ModificationDate = DateTime.Now;
+                    ad_PaymentMethod.ModifierId = 1;
                     if (rdoIsActiveYes.Checked == true)
                     {
-                        ad_BusinessNature.IsActive = true;
+                        ad_PaymentMethod.IsActive = true;
                     }
                     else
                     {
-                        ad_BusinessNature.IsActive = false;
+                        ad_PaymentMethod.IsActive = false;
                     }
-                    if (ad_BusinessNature.Id > 0)
+                    if (ad_PaymentMethod.Id > 0)
                     {
-                        db.Entry(ad_BusinessNature).State = EntityState.Modified;
+                        db.Entry(ad_PaymentMethod).State = EntityState.Modified;
                         db.SaveChanges();
                     }
                 }
@@ -149,31 +149,11 @@ namespace AdminModuleUI
 
                 throw ex;
             }
-         
         }
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-
             Clear();
         }
-
-        private void Delete()
-        {
-            if (MessageBox.Show("Are You Sure to Delete this Record ?", "Business Nature", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                using (security_modulesEntities db = new security_modulesEntities())
-                {
-                    var entry = db.Entry(ad_BusinessNature);
-                    if (entry.State == EntityState.Detached)
-                        db.AD_BusinessNature.Attach(ad_BusinessNature);
-                    db.AD_BusinessNature.Remove(ad_BusinessNature);
-                    db.SaveChanges();
-                    LoadDate();
-                    MessageBox.Show("Deleted Successfully");
-                }
-            }
-        }
-
     }
 }

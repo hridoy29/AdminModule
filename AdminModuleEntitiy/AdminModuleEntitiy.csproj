@@ -66,6 +66,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AdminModuleModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Model\AD_Bank.cs">
+      <DependentUpon>AdminModuleModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\AD_BusinessNature.cs">
       <DependentUpon>AdminModuleModel.tt</DependentUpon>
     </Compile>
@@ -73,6 +76,51 @@
       <DependentUpon>AdminModuleModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\AD_CompanyProfile.cs">
+      <DependentUpon>AdminModuleModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AD_Customer.cs">
+      <DependentUpon>AdminModuleModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AD_ExpenseHead.cs">
+      <DependentUpon>AdminModuleModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AD_HSCode.cs">
+      <DependentUpon>AdminModuleModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AD_MeasurementUnit.cs">
+      <DependentUpon>AdminModuleModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AD_PaymentMethod.cs">
+      <DependentUpon>AdminModuleModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AD_PricingType.cs">
+      <DependentUpon>AdminModuleModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AD_ProductGroup.cs">
+      <DependentUpon>AdminModuleModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AD_ProductType.cs">
+      <DependentUpon>AdminModuleModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AD_Purpose.cs">
+      <DependentUpon>AdminModuleModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AD_Reason.cs">
+      <DependentUpon>AdminModuleModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AD_SalesOutlet.cs">
+      <DependentUpon>AdminModuleModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AD_Store.cs">
+      <DependentUpon>AdminModuleModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AD_StoreItemStatusDeclaration.cs">
+      <DependentUpon>AdminModuleModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AD_Supplier.cs">
+      <DependentUpon>AdminModuleModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AD_Terminal.cs">
       <DependentUpon>AdminModuleModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
