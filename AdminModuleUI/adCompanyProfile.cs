@@ -76,7 +76,7 @@ namespace AdminModuleUI
             {
                 using (security_modulesEntities db = new security_modulesEntities())
                 {
-                    cmbBusinessNatureId.DataSource = db.AD_BusinessNature.Select(x => x.BusinessNature + "(" + x.Id + ")" ).ToList();
+                    cmbBusinessNatureId.DataSource = db.AD_BusinessNature.Select(x => x.BusinessNature + "(" + x.Id + ")").ToList();
                 }
             }
             catch (Exception ex)
@@ -215,7 +215,49 @@ namespace AdminModuleUI
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            if (txtboxSearch.Text.Trim() == "")
+            {
+                LoadDate();
+            }
+            else
+            {
+                dataGridView.AutoGenerateColumns = false;
+                using (security_modulesEntities db = new security_modulesEntities())
+                {
+                    try
+                    {
+                        var data = (from CP in db.AD_CompanyProfile
+                                    join BN in db.AD_BusinessNature
+                                    on CP.BusinessNatureId equals BN.Id
+                                    join BT in db.AD_BusinessType
+                                    on CP.BusinessTypeId equals BT.Id
+                                    select new
+                                    {
+                                        Id = CP.Id,
+                                        CompanyName = CP.CompanyName,
+                                        BusinessTypeId = CP.BusinessTypeId,
+                                        BusinessNatureId = CP.BusinessNatureId,
+                                        BIN = CP.BIN,
+                                        TIN = CP.TIN,
+                                        AddressLine1 = CP.AddressLine1,
+                                        AddressLine2 = CP.AddressLine2,
+                                        Phone = CP.Phone,
+                                        ContactPersion = CP.ContactPersion,
+                                        IncorporationNumber = CP.IncorporationNumber,
+                                        Remarks = CP.Remarks,
+                                        BusinessType = BT.BusinessType,
+                                        BusinessNature = BN.BusinessNature
+                                    }).Where(x => x.CompanyName.Contains(txtboxSearch.Text.Trim())).ToList();
+                        dataGridView.DataSource = data;
 
+                    }
+                    catch (Exception ex)
+                    {
+
+                        throw ex;
+                    }
+                }
+            }
         }
     }
 }
