@@ -4,14 +4,14 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="2d7b2beef7f640d3a844d94f3615aedc" Name="Diagram1">
+      <Diagram DiagramId="2d7b2beef7f640d3a844d94f3615aedc" Name="Diagram1" ZoomLevel="97">
         <EntityTypeShape EntityType="security_modulesModel.AD_BusinessNature" Width="1.5" PointX="1" PointY="1" />
         <EntityTypeShape EntityType="security_modulesModel.AD_BusinessType" Width="1.5" PointX="4.75" PointY="0.875" />
         <EntityTypeShape EntityType="security_modulesModel.AD_CompanyProfile" Width="1.5" PointX="2.875" PointY="0.875" />
         <AssociationConnector Association="security_modulesModel.FK_AD_CompanyProfile_AD_BusinessNature" />
         <AssociationConnector Association="security_modulesModel.FK_AD_CompanyProfile_AD_BusinessType" />
         <EntityTypeShape EntityType="security_modulesModel.AD_Bank" Width="1.5" PointX="5.75" PointY="4.75" />
-        <EntityTypeShape EntityType="security_modulesModel.AD_Customer" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="security_modulesModel.AD_Customer" Width="1.5" PointX="0.75" PointY="3.875" />
         <EntityTypeShape EntityType="security_modulesModel.AD_ExpenseHead" Width="1.5" PointX="2.75" PointY="6.75" />
         <EntityTypeShape EntityType="security_modulesModel.AD_HSCode" Width="1.5" PointX="6.625" PointY="0.75" />
         <EntityTypeShape EntityType="security_modulesModel.AD_MeasurementUnit" Width="1.5" PointX="7.75" PointY="4.75" />
@@ -19,13 +19,16 @@
         <EntityTypeShape EntityType="security_modulesModel.AD_PricingType" Width="1.5" PointX="6.75" PointY="8.75" />
         <EntityTypeShape EntityType="security_modulesModel.AD_ProductGroup" Width="1.5" PointX="8.75" PointY="8.75" />
         <EntityTypeShape EntityType="security_modulesModel.AD_ProductType" Width="1.5" PointX="8.375" PointY="0.75" />
-        <EntityTypeShape EntityType="security_modulesModel.AD_Purpose" Width="1.5" PointX="9.75" PointY="4.75" />
+        <EntityTypeShape EntityType="security_modulesModel.AD_Purpose" Width="1.5" PointX="9.75" PointY="4.875" />
         <EntityTypeShape EntityType="security_modulesModel.AD_Reason" Width="1.5" PointX="10.75" PointY="8.75" />
         <EntityTypeShape EntityType="security_modulesModel.AD_SalesOutlet" Width="1.5" PointX="10.125" PointY="0.75" />
-        <EntityTypeShape EntityType="security_modulesModel.AD_Store" Width="1.5" PointX="0.75" PointY="11.75" />
+        <EntityTypeShape EntityType="security_modulesModel.AD_Store" Width="1.5" PointX="11.875" PointY="0.75" />
         <EntityTypeShape EntityType="security_modulesModel.AD_StoreItemStatusDeclaration" Width="1.5" PointX="11.75" PointY="4.75" />
-        <EntityTypeShape EntityType="security_modulesModel.AD_Supplier" Width="1.5" PointX="2.75" PointY="12.75" />
+        <EntityTypeShape EntityType="security_modulesModel.AD_Supplier" Width="1.5" PointX="2.625" PointY="9.5" />
         <EntityTypeShape EntityType="security_modulesModel.AD_Terminal" Width="1.5" PointX="4.75" PointY="12.75" />
+        <EntityTypeShape EntityType="security_modulesModel.AD_Product" Width="1.5" PointX="7.375" PointY="12.75" />
+        <EntityTypeShape EntityType="security_modulesModel.AD_ProductCodeIntegration" Width="1.5" PointX="9.375" PointY="12.75" />
+        <EntityTypeShape EntityType="security_modulesModel.AD_ProductPricing" Width="1.5" PointX="11.375" PointY="12.75" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

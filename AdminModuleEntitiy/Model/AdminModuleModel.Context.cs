@@ -44,5 +44,8 @@ namespace AdminModuleEntitiy.Model
         public virtual DbSet<AD_StoreItemStatusDeclaration> AD_StoreItemStatusDeclaration { get; set; }
         public virtual DbSet<AD_Supplier> AD_Supplier { get; set; }
         public virtual DbSet<AD_Terminal> AD_Terminal { get; set; }
+        public virtual DbSet<AD_Product> AD_Product { get; set; }
+        public virtual DbSet<AD_ProductCodeIntegration> AD_ProductCodeIntegration { get; set; }
+        public virtual DbSet<AD_ProductPricing> AD_ProductPricing { get; set; }
     }
 }

@@ -12,22 +12,23 @@ using AdminModuleEntitiy.Model;
 
 namespace AdminModuleUI
 {
-    public partial class adBank : Form
+    public partial class adSalesOutlet : Form
     {
-        AD_Bank ad_Bank = new AD_Bank();
-        public adBank()
+        AD_SalesOutlet ad_SalesOutlet = new AD_SalesOutlet();
+        public adSalesOutlet()
         {
             InitializeComponent();
         }
-
-       
         public void Clear()
         {
-            txtboxBankName.Clear();
-            txtboxAccountNumber.Clear();
+            txtboxOutletName.Clear();
+            txtboxAddressLine1.Clear();
+            txtboxAddressLine2.Clear();
+            txtboxPhoneNumber1.Clear();
+            txtboxPhoneNumber2.Clear();
             rdoIsActiveYes.Checked = true;
             btnSave.Enabled = true;
-            ad_Bank.Id = 0;
+            ad_SalesOutlet.Id = 0;
 
         }
         public void LoadDate()
@@ -36,32 +37,34 @@ namespace AdminModuleUI
             dataGridView.AutoGenerateColumns = false;
             using (security_modulesEntities db = new security_modulesEntities())
             {
-                dataGridView.DataSource = db.AD_Bank.ToList();
+                dataGridView.DataSource = db.AD_SalesOutlet.ToList();
             }
 
         }
-
-
-        private void adBank_Load(object sender, EventArgs e)
+        private void adSalesOutlet_Load(object sender, EventArgs e)
         {
             LoadDate();
-
-
         }
+
         private void dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
                 if (dataGridView.CurrentRow.Index != -1)
                 {
-                    ad_Bank.Id = Convert.ToInt32(dataGridView.CurrentRow.Cells["Id"].Value);
+                    ad_SalesOutlet.Id = Convert.ToInt32(dataGridView.CurrentRow.Cells["Id"].Value);
                     using (security_modulesEntities db = new security_modulesEntities())
                     {
-                        ad_Bank = db.AD_Bank.Where(x => x.Id == ad_Bank.Id).FirstOrDefault();
-                        txtboxAccountNumber.Text = ad_Bank.AccountNumber;
-                        txtboxBankName.Text = ad_Bank.BankName;
+                        ad_SalesOutlet = db.AD_SalesOutlet.Where(x => x.Id == ad_SalesOutlet.Id).FirstOrDefault();
+                        
+                        txtboxOutletName.Text = ad_SalesOutlet.OutletName;
+                        txtboxAddressLine1.Text = ad_SalesOutlet.AddressLine1;
+                        txtboxAddressLine2.Text = ad_SalesOutlet.AddressLine2;
+                        txtboxPhoneNumber1.Text = ad_SalesOutlet.PhoneNumber1;
+                        txtboxPhoneNumber2.Text = ad_SalesOutlet.PhoneNumber2;
+                        
 
-                        if (ad_Bank.IsActive == true)
+                        if (ad_SalesOutlet.IsActive == true)
                         {
                             rdoIsActiveYes.Checked = true;
                         }
@@ -88,23 +91,28 @@ namespace AdminModuleUI
             {
                 using (security_modulesEntities db = new security_modulesEntities())
                 {
-                    ad_Bank.AccountNumber = txtboxAccountNumber.Text.Trim();
-                    ad_Bank.BankName = txtboxBankName.Text.Trim();
-                    ad_Bank.CreationDate = DateTime.Now;
-                    ad_Bank.CreatorId = 1;
-                    ad_Bank.ModificationDate = DateTime.Now;
-                    ad_Bank.ModifierId = 1;
+                    
+                    ad_SalesOutlet.OutletName = txtboxOutletName.Text.Trim();
+                    ad_SalesOutlet.AddressLine1 = txtboxAddressLine1.Text.Trim();
+                    ad_SalesOutlet.AddressLine2 = txtboxAddressLine2.Text.Trim();
+                    ad_SalesOutlet.PhoneNumber1 = txtboxPhoneNumber1.Text.Trim();
+                    ad_SalesOutlet.PhoneNumber2 = txtboxPhoneNumber2.Text.Trim();
+                     
+                    ad_SalesOutlet.CreationDate = DateTime.Now;
+                    ad_SalesOutlet.CreatorId = 1;
+                    ad_SalesOutlet.ModificationDate = DateTime.Now;
+                    ad_SalesOutlet.ModifierId = 1;
                     if (rdoIsActiveYes.Checked == true)
                     {
-                        ad_Bank.IsActive = true;
+                        ad_SalesOutlet.IsActive = true;
                     }
                     else
                     {
-                        ad_Bank.IsActive = false;
+                        ad_SalesOutlet.IsActive = false;
                     }
-                    if (ad_Bank.Id == 0)
+                    if (ad_SalesOutlet.Id == 0)
                     {
-                        db.AD_Bank.Add(ad_Bank);
+                        db.AD_SalesOutlet.Add(ad_SalesOutlet);
                         db.SaveChanges();
                     }
                     LoadDate();
@@ -127,21 +135,24 @@ namespace AdminModuleUI
                 using (security_modulesEntities db = new security_modulesEntities())
                 {
 
-                    ad_Bank.AccountNumber = txtboxAccountNumber.Text.Trim();
-                    ad_Bank.BankName = txtboxBankName.Text.Trim();
-                    ad_Bank.ModificationDate = DateTime.Now;
-                    ad_Bank.ModifierId = 1;
+                    ad_SalesOutlet.OutletName = txtboxOutletName.Text.Trim();
+                    ad_SalesOutlet.AddressLine1 = txtboxAddressLine1.Text.Trim();
+                    ad_SalesOutlet.AddressLine2 = txtboxAddressLine2.Text.Trim();
+                    ad_SalesOutlet.PhoneNumber1 = txtboxPhoneNumber1.Text.Trim();
+                    ad_SalesOutlet.PhoneNumber2 = txtboxPhoneNumber2.Text.Trim();
+                    ad_SalesOutlet.ModificationDate = DateTime.Now;
+                    ad_SalesOutlet.ModifierId = 1;
                     if (rdoIsActiveYes.Checked == true)
                     {
-                        ad_Bank.IsActive = true;
+                        ad_SalesOutlet.IsActive = true;
                     }
                     else
                     {
-                        ad_Bank.IsActive = false;
+                        ad_SalesOutlet.IsActive = false;
                     }
-                    if (ad_Bank.Id > 0)
+                    if (ad_SalesOutlet.Id > 0)
                     {
-                        db.Entry(ad_Bank).State = EntityState.Modified;
+                        db.Entry(ad_SalesOutlet).State = EntityState.Modified;
                         db.SaveChanges();
                     }
                 }
@@ -159,6 +170,7 @@ namespace AdminModuleUI
         private void btnClear_Click(object sender, EventArgs e)
         {
             Clear();
+
         }
     }
 }

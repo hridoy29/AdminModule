@@ -110,6 +110,12 @@
     <Compile Include="adPaymentMethod.Designer.cs">
       <DependentUpon>adPaymentMethod.cs</DependentUpon>
     </Compile>
+    <Compile Include="adPriceSetup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="adPriceSetup.Designer.cs">
+      <DependentUpon>adPriceSetup.cs</DependentUpon>
+    </Compile>
     <Compile Include="adPricingType.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,6 +146,12 @@
     <Compile Include="adReason.Designer.cs">
       <DependentUpon>adReason.cs</DependentUpon>
     </Compile>
+    <Compile Include="adSalesOutlet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="adSalesOutlet.Designer.cs">
+      <DependentUpon>adSalesOutlet.cs</DependentUpon>
+    </Compile>
     <Compile Include="adStore.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,6 +163,12 @@
     </Compile>
     <Compile Include="adStoreItemStatusDeclaration.Designer.cs">
       <DependentUpon>adStoreItemStatusDeclaration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="adSupplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="adSupplier.Designer.cs">
+      <DependentUpon>adSupplier.cs</DependentUpon>
     </Compile>
     <Compile Include="adTerminal.cs">
       <SubType>Form</SubType>
@@ -172,6 +190,9 @@
     <EmbeddedResource Include="adCompanyProfile.resx">
       <DependentUpon>adCompanyProfile.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="adCustomer.resx">
+      <DependentUpon>adCustomer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="adExpenseHead.resx">
       <DependentUpon>adExpenseHead.cs</DependentUpon>
     </EmbeddedResource>
@@ -183,6 +204,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="adPaymentMethod.resx">
       <DependentUpon>adPaymentMethod.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="adPriceSetup.resx">
+      <DependentUpon>adPriceSetup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="adPricingType.resx">
       <DependentUpon>adPricingType.cs</DependentUpon>
@@ -199,11 +223,17 @@
     <EmbeddedResource Include="adReason.resx">
       <DependentUpon>adReason.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="adSalesOutlet.resx">
+      <DependentUpon>adSalesOutlet.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="adStore.resx">
       <DependentUpon>adStore.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="adStoreItemStatusDeclaration.resx">
       <DependentUpon>adStoreItemStatusDeclaration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="adSupplier.resx">
+      <DependentUpon>adSupplier.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="adTerminal.resx">
       <DependentUpon>adTerminal.cs</DependentUpon>

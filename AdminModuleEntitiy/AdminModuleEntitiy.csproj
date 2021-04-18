@@ -96,7 +96,16 @@
     <Compile Include="Model\AD_PricingType.cs">
       <DependentUpon>AdminModuleModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\AD_Product.cs">
+      <DependentUpon>AdminModuleModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AD_ProductCodeIntegration.cs">
+      <DependentUpon>AdminModuleModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\AD_ProductGroup.cs">
+      <DependentUpon>AdminModuleModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AD_ProductPricing.cs">
       <DependentUpon>AdminModuleModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\AD_ProductType.cs">
