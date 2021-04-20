@@ -39,8 +39,12 @@
             this.rdoIsActiveYes = new System.Windows.Forms.RadioButton();
             this.txtboxProductGroup = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.cmbValuationType = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ValuationTypeId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProductGroup = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ValuationType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IsActive = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.panel1.SuspendLayout();
@@ -57,7 +61,9 @@
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
+            this.ValuationTypeId,
             this.ProductGroup,
+            this.ValuationType,
             this.IsActive});
             this.dataGridView.Location = new System.Drawing.Point(0, 3);
             this.dataGridView.Name = "dataGridView";
@@ -69,6 +75,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(46)))), ((int)(((byte)(107)))));
+            this.panel1.Controls.Add(this.cmbValuationType);
+            this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.btnClear);
             this.panel1.Controls.Add(this.btnUpdate);
             this.panel1.Controls.Add(this.btnSave);
@@ -86,7 +94,7 @@
             this.btnClear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(126)))), ((int)(((byte)(1)))));
             this.btnClear.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnClear.Location = new System.Drawing.Point(213, 236);
+            this.btnClear.Location = new System.Drawing.Point(213, 313);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(87, 61);
             this.btnClear.TabIndex = 4;
@@ -99,7 +107,7 @@
             this.btnUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(58)))), ((int)(((byte)(92)))));
             this.btnUpdate.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnUpdate.Location = new System.Drawing.Point(119, 236);
+            this.btnUpdate.Location = new System.Drawing.Point(119, 313);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(87, 61);
             this.btnUpdate.TabIndex = 3;
@@ -112,7 +120,7 @@
             this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(81)))), ((int)(((byte)(250)))));
             this.btnSave.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnSave.Location = new System.Drawing.Point(24, 236);
+            this.btnSave.Location = new System.Drawing.Point(24, 313);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(87, 61);
             this.btnSave.TabIndex = 2;
@@ -138,7 +146,7 @@
             this.groupBoxActive.Controls.Add(this.rdoIsActiveYes);
             this.groupBoxActive.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxActive.ForeColor = System.Drawing.Color.White;
-            this.groupBoxActive.Location = new System.Drawing.Point(24, 112);
+            this.groupBoxActive.Location = new System.Drawing.Point(24, 189);
             this.groupBoxActive.Name = "groupBoxActive";
             this.groupBoxActive.Size = new System.Drawing.Size(276, 116);
             this.groupBoxActive.TabIndex = 0;
@@ -152,7 +160,7 @@
             this.rdoIsActiveNo.ForeColor = System.Drawing.Color.White;
             this.rdoIsActiveNo.Location = new System.Drawing.Point(124, 44);
             this.rdoIsActiveNo.Name = "rdoIsActiveNo";
-            this.rdoIsActiveNo.Size = new System.Drawing.Size(52, 25);
+            this.rdoIsActiveNo.Size = new System.Drawing.Size(45, 23);
             this.rdoIsActiveNo.TabIndex = 2;
             this.rdoIsActiveNo.TabStop = true;
             this.rdoIsActiveNo.Text = "No";
@@ -165,7 +173,7 @@
             this.rdoIsActiveYes.ForeColor = System.Drawing.Color.White;
             this.rdoIsActiveYes.Location = new System.Drawing.Point(17, 44);
             this.rdoIsActiveYes.Name = "rdoIsActiveYes";
-            this.rdoIsActiveYes.Size = new System.Drawing.Size(57, 25);
+            this.rdoIsActiveYes.Size = new System.Drawing.Size(49, 23);
             this.rdoIsActiveYes.TabIndex = 1;
             this.rdoIsActiveYes.TabStop = true;
             this.rdoIsActiveYes.Text = "Yes";
@@ -186,6 +194,26 @@
             this.panel2.Size = new System.Drawing.Size(500, 476);
             this.panel2.TabIndex = 3;
             // 
+            // cmbValuationType
+            // 
+            this.cmbValuationType.FormattingEnabled = true;
+            this.cmbValuationType.Location = new System.Drawing.Point(24, 143);
+            this.cmbValuationType.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cmbValuationType.Name = "cmbValuationType";
+            this.cmbValuationType.Size = new System.Drawing.Size(276, 23);
+            this.cmbValuationType.TabIndex = 28;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(24, 111);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(104, 19);
+            this.label2.TabIndex = 27;
+            this.label2.Text = "Valuation Type";
+            // 
             // Id
             // 
             this.Id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
@@ -195,6 +223,14 @@
             this.Id.ReadOnly = true;
             this.Id.Visible = false;
             // 
+            // ValuationTypeId
+            // 
+            this.ValuationTypeId.DataPropertyName = "ValuationTypeId";
+            this.ValuationTypeId.HeaderText = "ValuationTypeId";
+            this.ValuationTypeId.Name = "ValuationTypeId";
+            this.ValuationTypeId.ReadOnly = true;
+            this.ValuationTypeId.Visible = false;
+            // 
             // ProductGroup
             // 
             this.ProductGroup.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -202,6 +238,13 @@
             this.ProductGroup.HeaderText = "Product Group";
             this.ProductGroup.Name = "ProductGroup";
             this.ProductGroup.ReadOnly = true;
+            // 
+            // ValuationType
+            // 
+            this.ValuationType.DataPropertyName = "ValuationType";
+            this.ValuationType.HeaderText = "Valuation Type";
+            this.ValuationType.Name = "ValuationType";
+            this.ValuationType.ReadOnly = true;
             // 
             // IsActive
             // 
@@ -246,8 +289,12 @@
         private System.Windows.Forms.RadioButton rdoIsActiveYes;
         private System.Windows.Forms.TextBox txtboxProductGroup;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.ComboBox cmbValuationType;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ValuationTypeId;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProductGroup;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ValuationType;
         private System.Windows.Forms.DataGridViewCheckBoxColumn IsActive;
     }
 }

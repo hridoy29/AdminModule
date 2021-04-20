@@ -16,7 +16,7 @@ namespace AdminModuleUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new adPriceSetup());
+            Application.Run(new adProductGroup());
         }
     }
 }

@@ -12,15 +12,9 @@ namespace AdminModuleEntitiy.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class AD_PaymentMethod
+    public partial class AD_PaymentMethodType
     {
         public int Id { get; set; }
-        public string PaymentType { get; set; }
-        public int MethodTypeId { get; set; }
-        public bool IsActive { get; set; }
-        public int CreatorId { get; set; }
-        public System.DateTime CreationDate { get; set; }
-        public int ModifierId { get; set; }
-        public System.DateTime ModificationDate { get; set; }
+        public string TypeDescription { get; set; }
     }
 }

@@ -21,11 +21,25 @@ namespace AdminModuleUI
         }
         public void Clear()
         {
-            txtboxPaymentType.Clear();
-            txtboxType.Clear();
+            txtboxPaymentType.Clear();            
             rdoIsActiveYes.Checked = true;
             btnSave.Enabled = true;
             ad_PaymentMethod.Id = 0;
+            try
+            {
+                using (security_modulesEntities db = new security_modulesEntities())
+                {
+                    cmbMethodType.DataSource = db.AD_PaymentMethodType.ToList();
+                    cmbMethodType.DisplayMember = "TypeDescription";
+                    cmbMethodType.ValueMember = "Id";
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
 
         }
         public void LoadDate()
@@ -34,7 +48,18 @@ namespace AdminModuleUI
             dataGridView.AutoGenerateColumns = false;
             using (security_modulesEntities db = new security_modulesEntities())
             {
-                dataGridView.DataSource = db.AD_PaymentMethod.ToList();
+                var data = (from CP in db.AD_PaymentMethod
+                            join BN in db.AD_PaymentMethodType
+                            on CP.MethodTypeId equals BN.Id                          
+                            select new
+                            {
+                                Id = CP.Id,
+                                PaymentType = CP.PaymentType,
+                                TypeDescription = BN.TypeDescription,
+                                IsActive = CP.IsActive
+                            }).ToList();
+                dataGridView.DataSource = data;
+               // dataGridView.DataSource = db.AD_PaymentMethod.ToList();
             }
 
         }
@@ -53,7 +78,7 @@ namespace AdminModuleUI
                     using (security_modulesEntities db = new security_modulesEntities())
                     {
                         ad_PaymentMethod = db.AD_PaymentMethod.Where(x => x.Id == ad_PaymentMethod.Id).FirstOrDefault();
-                        txtboxType.Text = ad_PaymentMethod.Type.ToString();
+                         
                         txtboxPaymentType.Text = ad_PaymentMethod.PaymentType;
 
                         if (ad_PaymentMethod.IsActive == true)
@@ -84,7 +109,7 @@ namespace AdminModuleUI
                 using (security_modulesEntities db = new security_modulesEntities())
                 {
                     ad_PaymentMethod.PaymentType = txtboxPaymentType.Text.Trim();
-                    ad_PaymentMethod.Type = Convert.ToInt16(txtboxType.Text.Trim());
+                    ad_PaymentMethod.MethodTypeId = (int)cmbMethodType.SelectedValue;
                     ad_PaymentMethod.CreationDate = DateTime.Now;
                     ad_PaymentMethod.CreatorId = 1;
                     ad_PaymentMethod.ModificationDate = DateTime.Now;
@@ -123,7 +148,7 @@ namespace AdminModuleUI
                 {
 
                     ad_PaymentMethod.PaymentType = txtboxPaymentType.Text.Trim();
-                    ad_PaymentMethod.Type = Convert.ToInt16(txtboxType.Text.Trim());
+                    ad_PaymentMethod.MethodTypeId = (int)cmbMethodType.SelectedValue;
                     ad_PaymentMethod.ModificationDate = DateTime.Now;
                     ad_PaymentMethod.ModifierId = 1;
                     if (rdoIsActiveYes.Checked == true)

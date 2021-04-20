@@ -30,6 +30,8 @@
         {
             this.btnSave = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtboxAccountNumber = new System.Windows.Forms.TextBox();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -39,8 +41,6 @@
             this.txtboxBankName = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtboxAccountNumber = new System.Windows.Forms.TextBox();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BankName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AccountNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -67,19 +67,37 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(46)))), ((int)(((byte)(107)))));
-            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.txtboxBankName);
             this.panel1.Controls.Add(this.txtboxAccountNumber);
+            this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.btnClear);
             this.panel1.Controls.Add(this.btnUpdate);
             this.panel1.Controls.Add(this.btnSave);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.groupBoxActive);
-            this.panel1.Controls.Add(this.txtboxBankName);
             this.panel1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(297, 472);
             this.panel1.TabIndex = 2;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(21, 103);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(116, 19);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Account Number";
+            // 
+            // txtboxAccountNumber
+            // 
+            this.txtboxAccountNumber.Location = new System.Drawing.Point(21, 129);
+            this.txtboxAccountNumber.Name = "txtboxAccountNumber";
+            this.txtboxAccountNumber.Size = new System.Drawing.Size(237, 23);
+            this.txtboxAccountNumber.TabIndex = 5;
             // 
             // btnClear
             // 
@@ -138,7 +156,7 @@
             this.rdoIsActiveNo.ForeColor = System.Drawing.Color.White;
             this.rdoIsActiveNo.Location = new System.Drawing.Point(106, 44);
             this.rdoIsActiveNo.Name = "rdoIsActiveNo";
-            this.rdoIsActiveNo.Size = new System.Drawing.Size(45, 25);
+            this.rdoIsActiveNo.Size = new System.Drawing.Size(45, 23);
             this.rdoIsActiveNo.TabIndex = 2;
             this.rdoIsActiveNo.TabStop = true;
             this.rdoIsActiveNo.Text = "No";
@@ -151,7 +169,7 @@
             this.rdoIsActiveYes.ForeColor = System.Drawing.Color.White;
             this.rdoIsActiveYes.Location = new System.Drawing.Point(15, 44);
             this.rdoIsActiveYes.Name = "rdoIsActiveYes";
-            this.rdoIsActiveYes.Size = new System.Drawing.Size(49, 25);
+            this.rdoIsActiveYes.Size = new System.Drawing.Size(49, 23);
             this.rdoIsActiveYes.TabIndex = 1;
             this.rdoIsActiveYes.TabStop = true;
             this.rdoIsActiveYes.Text = "Yes";
@@ -190,24 +208,6 @@
             this.dataGridView.Size = new System.Drawing.Size(424, 468);
             this.dataGridView.TabIndex = 0;
             this.dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellClick);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(21, 103);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(116, 19);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Account Number";
-            // 
-            // txtboxAccountNumber
-            // 
-            this.txtboxAccountNumber.Location = new System.Drawing.Point(21, 129);
-            this.txtboxAccountNumber.Name = "txtboxAccountNumber";
-            this.txtboxAccountNumber.Size = new System.Drawing.Size(237, 23);
-            this.txtboxAccountNumber.TabIndex = 5;
             // 
             // Id
             // 

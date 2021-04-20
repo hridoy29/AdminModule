@@ -25,6 +25,21 @@ namespace AdminModuleUI
             rdoIsActiveYes.Checked = true;
             btnSave.Enabled = true;
             ad_ProductGroup.Id = 0;
+            try
+            {
+                using (security_modulesEntities db = new security_modulesEntities())
+                {
+                    cmbValuationType.DataSource = db.AD_ValuationType.ToList();
+                    cmbValuationType.DisplayMember = "ValuationType";
+                    cmbValuationType.ValueMember = "Id";
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
         public void LoadDate()
         {
@@ -32,7 +47,19 @@ namespace AdminModuleUI
             dataGridView.AutoGenerateColumns = false;
             using (security_modulesEntities db = new security_modulesEntities())
             {
-                dataGridView.DataSource = db.AD_ProductGroup.ToList();
+                var data = (from CP in db.AD_ProductGroup
+                            join BN in db.AD_ValuationType
+                            on CP.ValuationTypeId equals BN.Id
+                            select new
+                            {
+                                Id = CP.Id,
+                                ProductGroup = CP.ProductGroup,
+                                ValuationType = BN.ValuationType,
+                                ValuationTypeId=CP.ValuationTypeId,
+                                IsActive = CP.IsActive
+                            }).ToList();
+                dataGridView.DataSource = data;
+                //dataGridView.DataSource = db.AD_ProductGroup.ToList();
             }
 
         }
@@ -83,6 +110,7 @@ namespace AdminModuleUI
                 using (security_modulesEntities db = new security_modulesEntities())
                 {
                     ad_ProductGroup.ProductGroup = txtboxProductGroup.Text.Trim();
+                    ad_ProductGroup.ValuationTypeId = (int)cmbValuationType.SelectedValue;
                     ad_ProductGroup.CreationDate = DateTime.Now;
                     ad_ProductGroup.CreatorId = 1;
                     ad_ProductGroup.ModificationDate = DateTime.Now;
@@ -122,6 +150,7 @@ namespace AdminModuleUI
                 {
 
                     ad_ProductGroup.ProductGroup = txtboxProductGroup.Text.Trim();
+                    ad_ProductGroup.ValuationTypeId = (int)cmbValuationType.SelectedValue;
                     ad_ProductGroup.ModificationDate = DateTime.Now;
                     ad_ProductGroup.ModifierId = 1;
                     if (rdoIsActiveYes.Checked == true)

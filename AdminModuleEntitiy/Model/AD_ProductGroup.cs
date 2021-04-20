@@ -16,6 +16,7 @@ namespace AdminModuleEntitiy.Model
     {
         public int Id { get; set; }
         public string ProductGroup { get; set; }
+        public Nullable<int> ValuationTypeId { get; set; }
         public bool IsActive { get; set; }
         public int CreatorId { get; set; }
         public System.DateTime CreationDate { get; set; }

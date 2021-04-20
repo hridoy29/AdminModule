@@ -29,13 +29,8 @@
         private void InitializeComponent()
         {
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PaymentType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IsActive = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtboxType = new System.Windows.Forms.TextBox();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
@@ -45,6 +40,11 @@
             this.rdoIsActiveYes = new System.Windows.Forms.RadioButton();
             this.txtboxPaymentType = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.cmbMethodType = new System.Windows.Forms.ComboBox();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PaymentType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TypeDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IsActive = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.panel1.SuspendLayout();
             this.groupBoxActive.SuspendLayout();
@@ -61,7 +61,7 @@
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
             this.PaymentType,
-            this.Type,
+            this.TypeDescription,
             this.IsActive});
             this.dataGridView.Location = new System.Drawing.Point(0, 3);
             this.dataGridView.Name = "dataGridView";
@@ -70,44 +70,11 @@
             this.dataGridView.TabIndex = 0;
             this.dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellClick);
             // 
-            // Id
-            // 
-            this.Id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Id.DataPropertyName = "Id";
-            this.Id.HeaderText = "Id";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            this.Id.Visible = false;
-            // 
-            // PaymentType
-            // 
-            this.PaymentType.DataPropertyName = "PaymentType";
-            this.PaymentType.HeaderText = "Payment Type";
-            this.PaymentType.Name = "PaymentType";
-            this.PaymentType.ReadOnly = true;
-            this.PaymentType.Width = 181;
-            // 
-            // Type
-            // 
-            this.Type.DataPropertyName = "Type";
-            this.Type.HeaderText = "Type";
-            this.Type.Name = "Type";
-            this.Type.ReadOnly = true;
-            // 
-            // IsActive
-            // 
-            this.IsActive.DataPropertyName = "IsActive";
-            this.IsActive.HeaderText = "Active";
-            this.IsActive.Name = "IsActive";
-            this.IsActive.ReadOnly = true;
-            this.IsActive.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.IsActive.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(46)))), ((int)(((byte)(107)))));
+            this.panel1.Controls.Add(this.cmbMethodType);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.txtboxType);
             this.panel1.Controls.Add(this.btnClear);
             this.panel1.Controls.Add(this.btnUpdate);
             this.panel1.Controls.Add(this.btnSave);
@@ -127,16 +94,9 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(21, 108);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(39, 19);
+            this.label2.Size = new System.Drawing.Size(119, 19);
             this.label2.TabIndex = 6;
-            this.label2.Text = "Type";
-            // 
-            // txtboxType
-            // 
-            this.txtboxType.Location = new System.Drawing.Point(21, 134);
-            this.txtboxType.Name = "txtboxType";
-            this.txtboxType.Size = new System.Drawing.Size(237, 23);
-            this.txtboxType.TabIndex = 5;
+            this.label2.Text = "Payment Method";
             // 
             // btnClear
             // 
@@ -242,6 +202,48 @@
             this.panel2.Size = new System.Drawing.Size(429, 476);
             this.panel2.TabIndex = 3;
             // 
+            // cmbMethodType
+            // 
+            this.cmbMethodType.FormattingEnabled = true;
+            this.cmbMethodType.Location = new System.Drawing.Point(21, 140);
+            this.cmbMethodType.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cmbMethodType.Name = "cmbMethodType";
+            this.cmbMethodType.Size = new System.Drawing.Size(231, 23);
+            this.cmbMethodType.TabIndex = 26;
+            // 
+            // Id
+            // 
+            this.Id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Visible = false;
+            // 
+            // PaymentType
+            // 
+            this.PaymentType.DataPropertyName = "PaymentType";
+            this.PaymentType.HeaderText = "Payment Type";
+            this.PaymentType.Name = "PaymentType";
+            this.PaymentType.ReadOnly = true;
+            this.PaymentType.Width = 181;
+            // 
+            // TypeDescription
+            // 
+            this.TypeDescription.DataPropertyName = "TypeDescription";
+            this.TypeDescription.HeaderText = "TypeDescription";
+            this.TypeDescription.Name = "TypeDescription";
+            this.TypeDescription.ReadOnly = true;
+            // 
+            // IsActive
+            // 
+            this.IsActive.DataPropertyName = "IsActive";
+            this.IsActive.HeaderText = "Active";
+            this.IsActive.Name = "IsActive";
+            this.IsActive.ReadOnly = true;
+            this.IsActive.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.IsActive.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
             // adPaymentMethod
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
@@ -277,10 +279,10 @@
         private System.Windows.Forms.TextBox txtboxPaymentType;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtboxType;
+        private System.Windows.Forms.ComboBox cmbMethodType;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn PaymentType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Type;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TypeDescription;
         private System.Windows.Forms.DataGridViewCheckBoxColumn IsActive;
     }
 }

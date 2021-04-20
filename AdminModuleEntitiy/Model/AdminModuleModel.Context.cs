@@ -33,9 +33,7 @@ namespace AdminModuleEntitiy.Model
         public virtual DbSet<AD_ExpenseHead> AD_ExpenseHead { get; set; }
         public virtual DbSet<AD_HSCode> AD_HSCode { get; set; }
         public virtual DbSet<AD_MeasurementUnit> AD_MeasurementUnit { get; set; }
-        public virtual DbSet<AD_PaymentMethod> AD_PaymentMethod { get; set; }
         public virtual DbSet<AD_PricingType> AD_PricingType { get; set; }
-        public virtual DbSet<AD_ProductGroup> AD_ProductGroup { get; set; }
         public virtual DbSet<AD_ProductType> AD_ProductType { get; set; }
         public virtual DbSet<AD_Purpose> AD_Purpose { get; set; }
         public virtual DbSet<AD_Reason> AD_Reason { get; set; }
@@ -47,5 +45,9 @@ namespace AdminModuleEntitiy.Model
         public virtual DbSet<AD_Product> AD_Product { get; set; }
         public virtual DbSet<AD_ProductCodeIntegration> AD_ProductCodeIntegration { get; set; }
         public virtual DbSet<AD_ProductPricing> AD_ProductPricing { get; set; }
+        public virtual DbSet<AD_PaymentMethod> AD_PaymentMethod { get; set; }
+        public virtual DbSet<AD_PaymentMethodType> AD_PaymentMethodType { get; set; }
+        public virtual DbSet<AD_ProductGroup> AD_ProductGroup { get; set; }
+        public virtual DbSet<AD_ValuationType> AD_ValuationType { get; set; }
     }
 }

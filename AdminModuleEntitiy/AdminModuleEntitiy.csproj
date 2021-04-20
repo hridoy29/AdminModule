@@ -93,6 +93,9 @@
     <Compile Include="Model\AD_PaymentMethod.cs">
       <DependentUpon>AdminModuleModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\AD_PaymentMethodType.cs">
+      <DependentUpon>AdminModuleModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\AD_PricingType.cs">
       <DependentUpon>AdminModuleModel.tt</DependentUpon>
     </Compile>
@@ -130,6 +133,9 @@
       <DependentUpon>AdminModuleModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\AD_Terminal.cs">
+      <DependentUpon>AdminModuleModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AD_ValuationType.cs">
       <DependentUpon>AdminModuleModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

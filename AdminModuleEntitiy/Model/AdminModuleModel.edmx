@@ -129,12 +129,19 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="PaymentType" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Type" Type="smallint" Nullable="false" />
+          <Property Name="MethodTypeId" Type="int" Nullable="false" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
           <Property Name="CreatorId" Type="int" Nullable="false" />
           <Property Name="CreationDate" Type="datetime" Nullable="false" />
           <Property Name="ModifierId" Type="int" Nullable="false" />
           <Property Name="ModificationDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AD_PaymentMethodType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="TypeDescription" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="AD_PricingType">
           <Key>
@@ -184,6 +191,7 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ProductGroup" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ValuationTypeId" Type="int" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
           <Property Name="CreatorId" Type="int" Nullable="false" />
           <Property Name="CreationDate" Type="datetime" Nullable="false" />
@@ -309,6 +317,13 @@
           <Property Name="ModifierId" Type="int" Nullable="false" />
           <Property Name="ModificationDate" Type="datetime" Nullable="false" />
         </EntityType>
+        <EntityType Name="AD_ValuationType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="ValuationType" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <Association Name="FK_AD_CompanyProfile_AD_BusinessNature">
           <End Role="AD_BusinessNature" Type="Self.AD_BusinessNature" Multiplicity="1" />
           <End Role="AD_CompanyProfile" Type="Self.AD_CompanyProfile" Multiplicity="*" />
@@ -343,6 +358,7 @@
           <EntitySet Name="AD_HSCode" EntityType="Self.AD_HSCode" Schema="demo2" store:Type="Tables" />
           <EntitySet Name="AD_MeasurementUnit" EntityType="Self.AD_MeasurementUnit" Schema="demo2" store:Type="Tables" />
           <EntitySet Name="AD_PaymentMethod" EntityType="Self.AD_PaymentMethod" Schema="demo2" store:Type="Tables" />
+          <EntitySet Name="AD_PaymentMethodType" EntityType="Self.AD_PaymentMethodType" Schema="demo2" store:Type="Tables" />
           <EntitySet Name="AD_PricingType" EntityType="Self.AD_PricingType" Schema="demo2" store:Type="Tables" />
           <EntitySet Name="AD_Product" EntityType="Self.AD_Product" Schema="demo2" store:Type="Tables" />
           <EntitySet Name="AD_ProductCodeIntegration" EntityType="Self.AD_ProductCodeIntegration" Schema="demo2" store:Type="Tables" />
@@ -356,6 +372,7 @@
           <EntitySet Name="AD_StoreItemStatusDeclaration" EntityType="Self.AD_StoreItemStatusDeclaration" Schema="demo2" store:Type="Tables" />
           <EntitySet Name="AD_Supplier" EntityType="Self.AD_Supplier" Schema="demo2" store:Type="Tables" />
           <EntitySet Name="AD_Terminal" EntityType="Self.AD_Terminal" Schema="demo2" store:Type="Tables" />
+          <EntitySet Name="AD_ValuationType" EntityType="Self.AD_ValuationType" Schema="demo2" store:Type="Tables" />
           <AssociationSet Name="FK_AD_CompanyProfile_AD_BusinessNature" Association="Self.FK_AD_CompanyProfile_AD_BusinessNature">
             <End Role="AD_BusinessNature" EntitySet="AD_BusinessNature" />
             <End Role="AD_CompanyProfile" EntitySet="AD_CompanyProfile" />
@@ -386,9 +403,7 @@
           <EntitySet Name="AD_ExpenseHead" EntityType="security_modulesModel.AD_ExpenseHead" />
           <EntitySet Name="AD_HSCode" EntityType="security_modulesModel.AD_HSCode" />
           <EntitySet Name="AD_MeasurementUnit" EntityType="security_modulesModel.AD_MeasurementUnit" />
-          <EntitySet Name="AD_PaymentMethod" EntityType="security_modulesModel.AD_PaymentMethod" />
           <EntitySet Name="AD_PricingType" EntityType="security_modulesModel.AD_PricingType" />
-          <EntitySet Name="AD_ProductGroup" EntityType="security_modulesModel.AD_ProductGroup" />
           <EntitySet Name="AD_ProductType" EntityType="security_modulesModel.AD_ProductType" />
           <EntitySet Name="AD_Purpose" EntityType="security_modulesModel.AD_Purpose" />
           <EntitySet Name="AD_Reason" EntityType="security_modulesModel.AD_Reason" />
@@ -400,6 +415,10 @@
           <EntitySet Name="AD_Product" EntityType="security_modulesModel.AD_Product" />
           <EntitySet Name="AD_ProductCodeIntegration" EntityType="security_modulesModel.AD_ProductCodeIntegration" />
           <EntitySet Name="AD_ProductPricing" EntityType="security_modulesModel.AD_ProductPricing" />
+          <EntitySet Name="AD_PaymentMethod" EntityType="security_modulesModel.AD_PaymentMethod" />
+          <EntitySet Name="AD_PaymentMethodType" EntityType="security_modulesModel.AD_PaymentMethodType" />
+          <EntitySet Name="AD_ProductGroup" EntityType="security_modulesModel.AD_ProductGroup" />
+          <EntitySet Name="AD_ValuationType" EntityType="security_modulesModel.AD_ValuationType" />
           </EntityContainer>
         <EntityType Name="AD_BusinessNature">
           <Key>
@@ -547,37 +566,12 @@
           <Property Name="ModifierId" Type="Int32" Nullable="false" />
           <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
-        <EntityType Name="AD_PaymentMethod">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="PaymentType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Type" Type="Int16" Nullable="false" />
-          <Property Name="IsActive" Type="Boolean" Nullable="false" />
-          <Property Name="CreatorId" Type="Int32" Nullable="false" />
-          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="ModifierId" Type="Int32" Nullable="false" />
-          <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="3" />
-        </EntityType>
         <EntityType Name="AD_PricingType">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="PricingType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="IsActive" Type="Boolean" Nullable="false" />
-          <Property Name="CreatorId" Type="Int32" Nullable="false" />
-          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="ModifierId" Type="Int32" Nullable="false" />
-          <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="3" />
-        </EntityType>
-        <EntityType Name="AD_ProductGroup">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ProductGroup" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
           <Property Name="CreatorId" Type="Int32" Nullable="false" />
           <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
@@ -733,6 +727,46 @@
           <Property Name="ProductId" Type="Int32" Nullable="false" />
           <Property Name="PricingType" Type="Int32" Nullable="false" />
         </EntityType>
+        <EntityType Name="AD_PaymentMethod">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PaymentType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MethodTypeId" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreatorId" Type="Int32" Nullable="false" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifierId" Type="Int32" Nullable="false" />
+          <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="AD_PaymentMethodType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="TypeDescription" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="AD_ProductGroup">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductGroup" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ValuationTypeId" Type="Int32" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreatorId" Type="Int32" Nullable="false" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifierId" Type="Int32" Nullable="false" />
+          <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="AD_ValuationType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="ValuationType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -865,20 +899,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="AD_PaymentMethod">
-            <EntityTypeMapping TypeName="security_modulesModel.AD_PaymentMethod">
-              <MappingFragment StoreEntitySet="AD_PaymentMethod">
-                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
-                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
-                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
-                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-                <ScalarProperty Name="Type" ColumnName="Type" />
-                <ScalarProperty Name="PaymentType" ColumnName="PaymentType" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="AD_PricingType">
             <EntityTypeMapping TypeName="security_modulesModel.AD_PricingType">
               <MappingFragment StoreEntitySet="AD_PricingType">
@@ -888,19 +908,6 @@
                 <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
                 <ScalarProperty Name="PricingType" ColumnName="PricingType" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="AD_ProductGroup">
-            <EntityTypeMapping TypeName="security_modulesModel.AD_ProductGroup">
-              <MappingFragment StoreEntitySet="AD_ProductGroup">
-                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
-                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
-                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
-                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-                <ScalarProperty Name="ProductGroup" ColumnName="ProductGroup" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1061,6 +1068,50 @@
               <MappingFragment StoreEntitySet="AD_ProductPricing">
                 <ScalarProperty Name="PricingType" ColumnName="PricingType" />
                 <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AD_PaymentMethod">
+            <EntityTypeMapping TypeName="security_modulesModel.AD_PaymentMethod">
+              <MappingFragment StoreEntitySet="AD_PaymentMethod">
+                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="MethodTypeId" ColumnName="MethodTypeId" />
+                <ScalarProperty Name="PaymentType" ColumnName="PaymentType" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AD_PaymentMethodType">
+            <EntityTypeMapping TypeName="security_modulesModel.AD_PaymentMethodType">
+              <MappingFragment StoreEntitySet="AD_PaymentMethodType">
+                <ScalarProperty Name="TypeDescription" ColumnName="TypeDescription" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AD_ProductGroup">
+            <EntityTypeMapping TypeName="security_modulesModel.AD_ProductGroup">
+              <MappingFragment StoreEntitySet="AD_ProductGroup">
+                <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
+                <ScalarProperty Name="ModifierId" ColumnName="ModifierId" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="CreatorId" ColumnName="CreatorId" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="ValuationTypeId" ColumnName="ValuationTypeId" />
+                <ScalarProperty Name="ProductGroup" ColumnName="ProductGroup" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AD_ValuationType">
+            <EntityTypeMapping TypeName="security_modulesModel.AD_ValuationType">
+              <MappingFragment StoreEntitySet="AD_ValuationType">
+                <ScalarProperty Name="ValuationType" ColumnName="ValuationType" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
