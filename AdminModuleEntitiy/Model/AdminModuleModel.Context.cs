@@ -49,5 +49,6 @@ namespace AdminModuleEntitiy.Model
         public virtual DbSet<AD_PaymentMethodType> AD_PaymentMethodType { get; set; }
         public virtual DbSet<AD_ProductGroup> AD_ProductGroup { get; set; }
         public virtual DbSet<AD_ValuationType> AD_ValuationType { get; set; }
+        public virtual DbSet<AD_OpeningBalanceCompany> AD_OpeningBalanceCompany { get; set; }
     }
 }

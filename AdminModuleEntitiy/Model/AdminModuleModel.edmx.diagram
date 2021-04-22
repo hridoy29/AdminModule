@@ -31,6 +31,7 @@
         <EntityTypeShape EntityType="security_modulesModel.AD_PaymentMethodType" Width="1.5" PointX="13.75" PointY="12.75" />
         <EntityTypeShape EntityType="security_modulesModel.AD_ProductGroup" Width="1.5" PointX="14.75" PointY="0.75" />
         <EntityTypeShape EntityType="security_modulesModel.AD_ValuationType" Width="1.5" PointX="0.75" PointY="14.75" />
+        <EntityTypeShape EntityType="security_modulesModel.AD_OpeningBalanceCompany" Width="1.5" PointX="14.375" PointY="4.75" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

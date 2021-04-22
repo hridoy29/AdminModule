@@ -90,6 +90,9 @@
     <Compile Include="Model\AD_MeasurementUnit.cs">
       <DependentUpon>AdminModuleModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\AD_OpeningBalanceCompany.cs">
+      <DependentUpon>AdminModuleModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\AD_PaymentMethod.cs">
       <DependentUpon>AdminModuleModel.tt</DependentUpon>
     </Compile>

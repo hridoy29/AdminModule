@@ -123,6 +123,15 @@
           <Property Name="ModifierId" Type="int" Nullable="false" />
           <Property Name="ModificationDate" Type="datetime" Nullable="false" />
         </EntityType>
+        <EntityType Name="AD_OpeningBalanceCompany">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PaymentMethordId" Type="int" Nullable="false" />
+          <Property Name="OpeningBalance" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="OpeningDate" Type="date" Nullable="false" />
+        </EntityType>
         <EntityType Name="AD_PaymentMethod">
           <Key>
             <PropertyRef Name="Id" />
@@ -357,6 +366,7 @@
           <EntitySet Name="AD_ExpenseHead" EntityType="Self.AD_ExpenseHead" Schema="demo2" store:Type="Tables" />
           <EntitySet Name="AD_HSCode" EntityType="Self.AD_HSCode" Schema="demo2" store:Type="Tables" />
           <EntitySet Name="AD_MeasurementUnit" EntityType="Self.AD_MeasurementUnit" Schema="demo2" store:Type="Tables" />
+          <EntitySet Name="AD_OpeningBalanceCompany" EntityType="Self.AD_OpeningBalanceCompany" Schema="demo2" store:Type="Tables" />
           <EntitySet Name="AD_PaymentMethod" EntityType="Self.AD_PaymentMethod" Schema="demo2" store:Type="Tables" />
           <EntitySet Name="AD_PaymentMethodType" EntityType="Self.AD_PaymentMethodType" Schema="demo2" store:Type="Tables" />
           <EntitySet Name="AD_PricingType" EntityType="Self.AD_PricingType" Schema="demo2" store:Type="Tables" />
@@ -419,6 +429,7 @@
           <EntitySet Name="AD_PaymentMethodType" EntityType="security_modulesModel.AD_PaymentMethodType" />
           <EntitySet Name="AD_ProductGroup" EntityType="security_modulesModel.AD_ProductGroup" />
           <EntitySet Name="AD_ValuationType" EntityType="security_modulesModel.AD_ValuationType" />
+          <EntitySet Name="AD_OpeningBalanceCompany" EntityType="security_modulesModel.AD_OpeningBalanceCompany" />
           </EntityContainer>
         <EntityType Name="AD_BusinessNature">
           <Key>
@@ -767,6 +778,15 @@
           <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="ValuationType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
+        <EntityType Name="AD_OpeningBalanceCompany">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PaymentMethordId" Type="Int32" Nullable="false" />
+          <Property Name="OpeningBalance" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OpeningDate" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1112,6 +1132,16 @@
             <EntityTypeMapping TypeName="security_modulesModel.AD_ValuationType">
               <MappingFragment StoreEntitySet="AD_ValuationType">
                 <ScalarProperty Name="ValuationType" ColumnName="ValuationType" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AD_OpeningBalanceCompany">
+            <EntityTypeMapping TypeName="security_modulesModel.AD_OpeningBalanceCompany">
+              <MappingFragment StoreEntitySet="AD_OpeningBalanceCompany">
+                <ScalarProperty Name="OpeningDate" ColumnName="OpeningDate" />
+                <ScalarProperty Name="OpeningBalance" ColumnName="OpeningBalance" />
+                <ScalarProperty Name="PaymentMethordId" ColumnName="PaymentMethordId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
