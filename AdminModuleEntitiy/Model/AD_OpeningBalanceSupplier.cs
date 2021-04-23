@@ -15,7 +15,7 @@ namespace AdminModuleEntitiy.Model
     public partial class AD_OpeningBalanceSupplier
     {
         public int Id { get; set; }
-        public int PaymentTypeId { get; set; }
+        public int SupplierId { get; set; }
         public string OpeningBalance { get; set; }
         public System.DateTime OpeningDate { get; set; }
     }

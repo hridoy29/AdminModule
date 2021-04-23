@@ -137,7 +137,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="PaymentTypeId" Type="int" Nullable="false" />
+          <Property Name="CustomerId" Type="int" Nullable="false" />
           <Property Name="OpeningBalance" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="OpeningDate" Type="date" Nullable="false" />
         </EntityType>
@@ -146,7 +146,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="PaymentTypeId" Type="int" Nullable="false" />
+          <Property Name="SupplierId" Type="int" Nullable="false" />
           <Property Name="OpeningBalance" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="OpeningDate" Type="date" Nullable="false" />
         </EntityType>
@@ -814,7 +814,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="PaymentTypeId" Type="Int32" Nullable="false" />
+          <Property Name="CustomerId" Type="Int32" Nullable="false" />
           <Property Name="OpeningBalance" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="OpeningDate" Type="DateTime" Nullable="false" Precision="0" />
         </EntityType>
@@ -823,7 +823,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="PaymentTypeId" Type="Int32" Nullable="false" />
+          <Property Name="SupplierId" Type="Int32" Nullable="false" />
           <Property Name="OpeningBalance" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="OpeningDate" Type="DateTime" Nullable="false" Precision="0" />
         </EntityType>
@@ -1191,7 +1191,7 @@
               <MappingFragment StoreEntitySet="AD_OpeningBalanceCustomer">
                 <ScalarProperty Name="OpeningDate" ColumnName="OpeningDate" />
                 <ScalarProperty Name="OpeningBalance" ColumnName="OpeningBalance" />
-                <ScalarProperty Name="PaymentTypeId" ColumnName="PaymentTypeId" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1201,7 +1201,7 @@
               <MappingFragment StoreEntitySet="AD_OpeningBalanceSupplier">
                 <ScalarProperty Name="OpeningDate" ColumnName="OpeningDate" />
                 <ScalarProperty Name="OpeningBalance" ColumnName="OpeningBalance" />
-                <ScalarProperty Name="PaymentTypeId" ColumnName="PaymentTypeId" />
+                <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

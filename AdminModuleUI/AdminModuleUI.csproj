@@ -110,6 +110,12 @@
     <Compile Include="adOpeningBalanceCompany.Designer.cs">
       <DependentUpon>adOpeningBalanceCompany.cs</DependentUpon>
     </Compile>
+    <Compile Include="adOpeningBalanceCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="adOpeningBalanceCustomer.Designer.cs">
+      <DependentUpon>adOpeningBalanceCustomer.cs</DependentUpon>
+    </Compile>
     <Compile Include="adOpeningBalanceSupplier.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -216,6 +222,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="adOpeningBalanceCompany.resx">
       <DependentUpon>adOpeningBalanceCompany.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="adOpeningBalanceCustomer.resx">
+      <DependentUpon>adOpeningBalanceCustomer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="adOpeningBalanceSupplier.resx">
       <DependentUpon>adOpeningBalanceSupplier.cs</DependentUpon>

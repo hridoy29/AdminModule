@@ -12,10 +12,10 @@ using AdminModuleEntitiy.Model;
 
 namespace AdminModuleUI
 {
-    public partial class adOpeningBalanceSupplier : Form
+    public partial class adOpeningBalanceCustomer : Form
     {
-        AD_OpeningBalanceSupplier ad_OpeningBalanceSupplier = new AD_OpeningBalanceSupplier();
-        public adOpeningBalanceSupplier()
+        AD_OpeningBalanceCustomer ad_OpeningBalanceCustomer = new AD_OpeningBalanceCustomer();
+        public adOpeningBalanceCustomer()
         {
             InitializeComponent();
         }
@@ -23,14 +23,14 @@ namespace AdminModuleUI
         {
             txtboxOpeningBalance.Clear();
             btnSave.Enabled = true;
-            ad_OpeningBalanceSupplier.Id = 0;
+            ad_OpeningBalanceCustomer.Id = 0;
             try
             {
                 using (security_modulesEntities db = new security_modulesEntities())
                 {
-                    cmbSupplierName.DataSource = db.AD_Supplier.ToList();
-                    cmbSupplierName.DisplayMember = "SupplierName";
-                    cmbSupplierName.ValueMember = "Id";
+                    cmbCustomerName.DataSource = db.AD_Customer.ToList();
+                    cmbCustomerName.DisplayMember = "CustomerName";
+                    cmbCustomerName.ValueMember = "Id";
 
                 }
             }
@@ -49,14 +49,14 @@ namespace AdminModuleUI
                 dataGridView.AutoGenerateColumns = false;
                 using (security_modulesEntities db = new security_modulesEntities())
                 {
-                    var data = (from CP in db.AD_OpeningBalanceSupplier
-                                join BN in db.AD_Supplier
-                                on CP.SupplierId equals BN.Id
+                    var data = (from CP in db.AD_OpeningBalanceCustomer
+                                join BN in db.AD_Customer
+                                on CP.CustomerId equals BN.Id
                                 select new
                                 {
                                     Id = CP.Id,
-                                    SupplierId = CP.SupplierId,
-                                    SupplierName = BN.SupplierName,
+                                    CustomerId = CP.CustomerId,
+                                    CustomerName = BN.CustomerName,
                                     OpeningBalance = CP.OpeningBalance,
                                     OpeningDate = CP.OpeningDate
 
@@ -72,23 +72,22 @@ namespace AdminModuleUI
 
 
         }
-        private void adOpeningBalanceSupplier_Load(object sender, EventArgs e)
+        private void adOpeningBalanceCompany_Load(object sender, EventArgs e)
         {
             LoadDate();
         }
-
         private void dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
                 if (dataGridView.CurrentRow.Index != -1)
                 {
-                    ad_OpeningBalanceSupplier.Id = Convert.ToInt32(dataGridView.CurrentRow.Cells["Id"].Value);
+                    ad_OpeningBalanceCustomer.Id = Convert.ToInt32(dataGridView.CurrentRow.Cells["Id"].Value);
                     using (security_modulesEntities db = new security_modulesEntities())
                     {
-                        ad_OpeningBalanceSupplier = db.AD_OpeningBalanceSupplier.Where(x => x.Id == ad_OpeningBalanceSupplier.Id).FirstOrDefault();
+                        ad_OpeningBalanceCustomer = db.AD_OpeningBalanceCustomer.Where(x => x.Id == ad_OpeningBalanceCustomer.Id).FirstOrDefault();
 
-                        txtboxOpeningBalance.Text = ad_OpeningBalanceSupplier.OpeningBalance;
+                        txtboxOpeningBalance.Text = ad_OpeningBalanceCustomer.OpeningBalance;
 
 
                     }
@@ -109,12 +108,12 @@ namespace AdminModuleUI
             {
                 using (security_modulesEntities db = new security_modulesEntities())
                 {
-                    ad_OpeningBalanceSupplier.OpeningBalance = txtboxOpeningBalance.Text.Trim();
-                    ad_OpeningBalanceSupplier.SupplierId = (int)cmbSupplierName.SelectedValue;
-                    ad_OpeningBalanceSupplier.OpeningDate = dateTimePicker.Value;
-                    if (ad_OpeningBalanceSupplier.Id == 0)
+                    ad_OpeningBalanceCustomer.OpeningBalance = txtboxOpeningBalance.Text.Trim();
+                    ad_OpeningBalanceCustomer.CustomerId = (int)cmbCustomerName.SelectedValue;
+                    ad_OpeningBalanceCustomer.OpeningDate = dateTimePicker.Value;
+                    if (ad_OpeningBalanceCustomer.Id == 0)
                     {
-                        db.AD_OpeningBalanceSupplier.Add(ad_OpeningBalanceSupplier);
+                        db.AD_OpeningBalanceCustomer.Add(ad_OpeningBalanceCustomer);
                         db.SaveChanges();
                     }
                     LoadDate();
@@ -136,12 +135,12 @@ namespace AdminModuleUI
                 using (security_modulesEntities db = new security_modulesEntities())
                 {
 
-                    ad_OpeningBalanceSupplier.OpeningBalance = txtboxOpeningBalance.Text.Trim();
-                    ad_OpeningBalanceSupplier.SupplierId = (int)cmbSupplierName.SelectedValue;
-                    ad_OpeningBalanceSupplier.OpeningDate = dateTimePicker.Value;
-                    if (ad_OpeningBalanceSupplier.Id > 0)
+                    ad_OpeningBalanceCustomer.OpeningBalance = txtboxOpeningBalance.Text.Trim();
+                    ad_OpeningBalanceCustomer.CustomerId = (int)cmbCustomerName.SelectedValue;
+                    ad_OpeningBalanceCustomer.OpeningDate = dateTimePicker.Value;
+                    if (ad_OpeningBalanceCustomer.Id > 0)
                     {
-                        db.Entry(ad_OpeningBalanceSupplier).State = EntityState.Modified;
+                        db.Entry(ad_OpeningBalanceCustomer).State = EntityState.Modified;
                         db.SaveChanges();
                     }
                 }
