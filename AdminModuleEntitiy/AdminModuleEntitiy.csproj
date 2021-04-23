@@ -93,6 +93,12 @@
     <Compile Include="Model\AD_OpeningBalanceCompany.cs">
       <DependentUpon>AdminModuleModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\AD_OpeningBalanceCustomer.cs">
+      <DependentUpon>AdminModuleModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\AD_OpeningBalanceSupplier.cs">
+      <DependentUpon>AdminModuleModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\AD_PaymentMethod.cs">
       <DependentUpon>AdminModuleModel.tt</DependentUpon>
     </Compile>

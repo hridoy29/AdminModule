@@ -50,5 +50,7 @@ namespace AdminModuleEntitiy.Model
         public virtual DbSet<AD_ProductGroup> AD_ProductGroup { get; set; }
         public virtual DbSet<AD_ValuationType> AD_ValuationType { get; set; }
         public virtual DbSet<AD_OpeningBalanceCompany> AD_OpeningBalanceCompany { get; set; }
+        public virtual DbSet<AD_OpeningBalanceCustomer> AD_OpeningBalanceCustomer { get; set; }
+        public virtual DbSet<AD_OpeningBalanceSupplier> AD_OpeningBalanceSupplier { get; set; }
     }
 }

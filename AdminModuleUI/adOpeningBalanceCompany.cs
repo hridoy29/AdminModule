@@ -111,7 +111,7 @@ namespace AdminModuleUI
                 {
                     aD_OpeningBalanceCompany.OpeningBalance = txtboxOpeningBalance.Text.Trim();
                     aD_OpeningBalanceCompany.PaymentMethordId = (int)cmbPaymentMethord.SelectedValue;
-                    aD_OpeningBalanceCompany.OpeningDate = DateTime.Now;
+                    aD_OpeningBalanceCompany.OpeningDate = dateTimePicker.Value;
                     if (aD_OpeningBalanceCompany.Id == 0)
                     {
                         db.AD_OpeningBalanceCompany.Add(aD_OpeningBalanceCompany);
@@ -139,7 +139,7 @@ namespace AdminModuleUI
 
                     aD_OpeningBalanceCompany.OpeningBalance = txtboxOpeningBalance.Text.Trim();
                     aD_OpeningBalanceCompany.PaymentMethordId = (int)cmbPaymentMethord.SelectedValue;
-                    //aD_OpeningBalanceCompany.OpeningDate = DateTime.Now;
+                    aD_OpeningBalanceCompany.OpeningDate = dateTimePicker.Value;
                     if (aD_OpeningBalanceCompany.Id > 0)
                     {
                         db.Entry(aD_OpeningBalanceCompany).State = EntityState.Modified;
