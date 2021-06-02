@@ -16,7 +16,7 @@ namespace AdminModuleUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new adOpeningBalanceSupplier());
+            Application.Run(new adOpeningBalanceSupplierAll());
         }
     }
 }
